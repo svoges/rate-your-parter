@@ -11,7 +11,12 @@ class LecturesController < ApplicationController
     @lecture = Lecture.new(lecture_params)
     @lecture.display_name = @lecture.name + " " + @lecture.semester + " " + @lecture.year.to_s
     @lecture.save
-    redirect_to lectures_path
+    if not @lecture.errors.full_messages.empty?
+      flash[:error] = @lecture.errors.full_messages.to_sentence
+      redirect_to new_lecture_path
+    else
+      redirect_to lectures_path
+    end
   end
 
   def new
