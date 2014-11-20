@@ -1,0 +1,7 @@
+<h2><%="Student: " + @review.person_being_reviewed %></h2>
+<h4><%="Reviewed by: " + @review.reviewer %></h4>
+<h5><%="Rating: " + @review.rating.to_s %></h5>
+<h3><%="Description: " + @review.description %></h3>
+
+
+<h5><%= link_to "Back to Class", lecture_path %></h5>
