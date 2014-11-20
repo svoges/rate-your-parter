@@ -1,0 +1,6 @@
+<%= form_for Lecture.new, url: {action: "create"} do |p| %>
+  Name:     <%= p.text_field :name %>
+  Semester: <%= p.text_field :semester %>
+  Year:     <%= p.text_field :year %>
+  <%= p.button "Create" %>
+<% end %>
