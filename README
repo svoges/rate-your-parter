@@ -1,3 +1,15 @@
+WRITEUP
+
+Title: Rate Your Partner
+Team Members: Steffan Voges, Ryan Flynn, Daniel Radding, Jenna Tan
+Demo Link:
+
+Idea: An application where students can post reviews about their project partners, as well as read reviews about potential partners
+
+Models and Description:
+User
+- 
+
 Rails Devise
 ================
 
