@@ -1,0 +1,13 @@
+<h3><%= @lecture.name + " " + @lecture.semester + " " + @lecture.year.to_s %></h3>
+<% if @lecture.reviews.any? %>
+  <h4>Students:</h4>
+    <ul>
+      <% @lecture.reviews.each do |review| %>
+        <% if review.lecture_id == @lecture[:id]%>
+          <h5><%= review.person_being_reviewed %>:</h5>
+        <% end %>
+      <% end %>
+    </ul>
+<% else %>
+  <h4> Lecture has no reviews! </h4>
+<% end %>

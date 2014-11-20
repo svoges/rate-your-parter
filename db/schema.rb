@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120064614) do
+ActiveRecord::Schema.define(version: 20141120070032) do
+
+  create_table "lectures", force: true do |t|
+    t.string   "name"
+    t.string   "semester"
+    t.integer  "year"
+    t.string   "display_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "description"
+    t.integer  "lecture_id"
+    t.string   "reviewer"
+    t.string   "person_being_reviewed"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
