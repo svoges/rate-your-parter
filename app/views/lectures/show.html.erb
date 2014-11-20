@@ -4,7 +4,9 @@
     <ul>
       <% @lecture.reviews.each do |review| %>
         <% if review.lecture_id == @lecture[:id]%>
-          <h5><%= link_to review.person_being_reviewed, review %></h5>
+          <% @user = User.find(review.person_reviewed_id) %>
+          <%= review.person_reviewed_id %>
+          <h5><%= link_to @user.name, review %></h5>
         <% end %>
       <% end %>
     </ul>

@@ -8,20 +8,20 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
+# Make Users
+%w(Ryan Jenna Daniel Steffan).each do |name|
+  User.create name: name, email: name+"@berkeley.edu"
+  puts "created user: " + name
+end
 
 # Make Reviews
 %w(Apple Banana).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  person_being_reviewed: "Ryan Flynn", lecture_id: 2
+  reviewer_id:1, person_reviewed_id: 1, lecture_id: 2
 end
 %w(Carrot Date).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  person_being_reviewed: "Steffan Voges", lecture_id: 3
-end
-
-# Make Users
-%w(Ryan Jenna Daniel Steffan).each do |name|
-  User.create name: name, email: name+"@berkeley.edu"
+  reviewer_id:3, person_reviewed_id: 3, lecture_id: 3
 end
 
 # Make Lectures
