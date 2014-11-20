@@ -4,4 +4,4 @@
 <h3><%="Description: " + @review.description %></h3>
 
 
-<h5><%= link_to "Back to Class", lecture_path %></h5>
+<h5><%= link_to "Back to Class", lecture_path(:id => @review.lecture_id) %></h5>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'lectures#index'
+  root to: 'home#index'
   devise_for :users
   resources :users
   resources :lectures

@@ -10,9 +10,13 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 
 # Make Reviews
-%w(Apple Banana Carrot Date).each do |reviewer|
+%w(Apple Banana).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  person_being_reviewed: "Ryan@berkeley.edu", lecture_id: 2
+  person_being_reviewed: "Ryan Flynn", lecture_id: 2
+end
+%w(Carrot Date).each do |reviewer|
+  Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
+  person_being_reviewed: "Steffan Voges", lecture_id: 3
 end
 
 # Make Users
