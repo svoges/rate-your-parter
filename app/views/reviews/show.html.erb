@@ -1,5 +1,5 @@
-<h2><%="Student: " + @review.person_being_reviewed %></h2>
-<h4><%="Reviewed by: " + @review.reviewer %></h4>
+<h2><%="Student: " + @person_being_reviewed.name if @person_being_reviewed.name%></h2>
+<h4><%="Reviewed by: " + @reviewer.name if @reviewer.name%></h4>
 <h5><%="Rating: " + @review.rating.to_s %></h5>
 <h3><%="Description: " + @review.description %></h3>
 

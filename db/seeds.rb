@@ -10,18 +10,24 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 # Make Users
 %w(Ryan Jenna Daniel Steffan).each do |name|
-  User.create name: name, email: name+"@berkeley.edu"
+  @u = User.new
+  @u.email = name+"@berkeley.edu"
+  @u.name = name
+  @u.password = "berkeley"
+  puts @u.valid?
+  puts @u.save
+  puts @u.errors.messages
   puts "created user: " + name
 end
 
 # Make Reviews
 %w(Apple Banana).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  reviewer_id:1, person_reviewed_id: 1, lecture_id: 2
+  reviewer_id:2, person_reviewed_id: 3, lecture_id: 2
 end
 %w(Carrot Date).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  reviewer_id:3, person_reviewed_id: 3, lecture_id: 3
+  reviewer_id:4, person_reviewed_id: 5, lecture_id: 3
 end
 
 # Make Lectures
