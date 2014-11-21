@@ -1,4 +1,5 @@
 <h3><%= @lecture.name + " " + @lecture.semester + " " + @lecture.year.to_s %></h3>
+<%= link_to "Create a review!", new_review_path %>
 <% if @lecture.reviews.any? %>
   <h4>Students:</h4>
     <ul>
