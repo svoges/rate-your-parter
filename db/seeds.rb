@@ -20,6 +20,21 @@ puts 'CREATED ADMIN USER: ' << user.email
   puts "created user: " + name
 end
 
+%w(Algorithms OS AI).each do |name|
+  @l = Lecture.new
+  @l.name = name
+  @l.semester = "Fall"
+  @l.year = 2014
+  @l.display_name = @l.name + " " + @l.semester + " " + @l.year.to_s
+  puts @l.valid?
+  puts @l.save
+  puts @l.errors.messages
+  puts "created lecture: " + name
+end
+
+Review.create reviewer: User.first, rating: 5, description: "Great partner!", lecture: Lecture.first, person_reviewed: User.second
+
+'''
 # Make Reviews
 %w(Apple Banana).each do |reviewer|
   Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
@@ -34,3 +49,4 @@ end
 %w(Algorithms Rails Music Operating\ Systems).each do |name|
   Lecture.create name: name, semester: "Fall", year: 2014, display_name: name + " Fall 2014"
 end
+'''
