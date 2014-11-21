@@ -22,12 +22,16 @@ class ReviewsController < ApplicationController
     @review.lecture_id = @lectue_reviewed.id
 
     @review.reviewer_id = current_user[:id]
-    @review.save
+
     if not @review.errors.full_messages.empty?
       flash[:error] = @review.errors.full_messages.to_sentence
       redirect_to new_review_path
+    elsif @review.rating < 0 or @review.rating > 5
+      flash[:error] = "Rating must be in the range 0-5"
+      redirect_to new_review_path
     else
-      redirect_to root_path
+      @review.save
+      redirect_to lectures_path
     end
   end
 
