@@ -3,5 +3,8 @@
 <h5><%="Rating: " + @review.rating.to_s %></h5>
 <h3><%="Description: " + @review.description %></h3>
 
+<% if @reviewer.id == current_user[:id] %>
+  <h5><%= link_to "Edit this review", edit_review_path %></h5>
+<% end %>
 
 <h5><%= link_to "Back to Class", lecture_path(:id => @review.lecture_id) %></h5>
