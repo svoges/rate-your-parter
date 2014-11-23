@@ -1,7 +1,11 @@
 <div class="container">
-<h3><%= @user.name %></h3>
-<p><%= @user.email if @user.email %></p>
+<p><h2><%= @user.name + ' '%></h2></p>
+<p><%= mail_to @user.email if @user.email %></p>
+<h3>Average Rating: <b><%= @average_rating %></b></h3>
+<% if @average_given_rating.length > 0 %>
 <p>Average rating given: <b><%= @average_given_rating %> </b></p>
+<% end %>
+<p></p>
 <br/>
 <table class="table table-hover">
 <tr>

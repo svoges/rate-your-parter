@@ -7,18 +7,25 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    users_given_reviews = Review.where(reviewer: @user).select('rating')
-    arr = Array.new
-    for i in 0..(users_given_reviews.count - 1)
-      arr.append(users_given_reviews[i]['rating'])
+    @average_rating = average_rating(@user, false)
+    @average_given_rating = average_rating(@user, true)
+  end
+
+  def average_rating(user, given)
+  	if given
+  	  reviews = Review.where(reviewer: @user).select('rating')
+  	else
+  	  reviews = Review.where(person_reviewed: @user).select('rating')
+  	end
+  	if reviews.length == 0
+  	  return ''
+  	end
+  	arr = Array.new
+  	for i in 0..(reviews.count - 1)
+      arr.append(reviews[i]['rating'])
     end
-    puts 'got here'
-    @average_given_rating = arr.inject{ |sum, el| sum + el }.to_f / arr.size
-    if @average_given_rating.to_s.length > 1
-      @average_given_rating = @average_given_rating.to_s[0..2]
-    else
-      @average_given_rating = @average_given_rating.to_s
-    end
+    average_rating = arr.inject{ |sum, el| sum + el }.to_f / arr.size
+    return average_rating.to_s[0..2]
   end
 
 end
