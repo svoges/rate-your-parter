@@ -43,3 +43,11 @@ for i in 0..all_users.size
   @r.lecture = Lecture.first
   @r.save
 end
+
+@r = Review.new
+@r.reviewer = User.first
+@r.person_reviewed = User.last
+@r.rating = 0
+@r.description = "I'd like to see what happens to the view with alonger description - one which occupies more than one line. So here goes. Steffan was really a very poor partner to work with. I worked with him on a Rails project, and he did literally none of the work. He didn't set up any models, didn't make any db seeds, didn't get any of the devise stuff or front-end working. He's really a dweeb."
+@r.lecture = Lecture.first
+@r.save
