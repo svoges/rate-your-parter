@@ -1,6 +1,18 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<div class="container">
+<h3><%= @user.name %></h3>
 <p>Email: <%= @user.email if @user.email %></p>
-<p>ID: <%= @user.id if @user.id %></p>
-<% @user.reviews.each do |review| %>
-<p>review.
+<table class="table table-hover">
+<tr>
+<th>Description</th>
+<th>Rating</th>
+<th>Reviewer</th>
+</tr>
+<% @user.received_reviews.each do |review| %>
+<tr>
+<td><%= review.description %></td>
+<td><%= review.rating.to_s %></td>
+<td><%= review.reviewer.name %></td>
+</tr>
+<% end %>
+</table>
+</div>
