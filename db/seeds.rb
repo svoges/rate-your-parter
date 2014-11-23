@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
+"""user = CreateAdminService.new.call
+puts 'CREATED ADMIN USER: ' << user.email"""
 
 # Make Users
 %w(Ryan Jenna Daniel Steffan).each do |name|
@@ -32,21 +32,14 @@ end
   puts "created lecture: " + name
 end
 
-Review.create reviewer: User.first, rating: 5, description: "Great partner!", lecture: Lecture.first, person_reviewed: User.second
+all_users = User.all
 
-'''
-# Make Reviews
-%w(Apple Banana).each do |reviewer|
-  Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  reviewer_id:2, person_reviewed_id: 3, lecture_id: 2
+for i in 0..all_users.size
+  @r = Review.new
+  @r.reviewer = all_users[i % all_users.size]
+  @r.person_reviewed = all_users[(i + 1) % all_users.size]
+  @r.rating = 5
+  @r.description = "Very good partner!"
+  @r.lecture = Lecture.first
+  @r.save
 end
-%w(Carrot Date).each do |reviewer|
-  Review.create reviewer: reviewer, rating: 5, description: "Great partner!",
-  reviewer_id:4, person_reviewed_id: 5, lecture_id: 3
-end
-
-# Make Lectures
-%w(Algorithms Rails Music Operating\ Systems).each do |name|
-  Lecture.create name: name, semester: "Fall", year: 2014, display_name: name + " Fall 2014"
-end
-'''

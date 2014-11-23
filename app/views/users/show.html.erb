@@ -2,3 +2,5 @@
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>ID: <%= @user.id if @user.id %></p>
+<% @user.reviews.each do |review| %>
+<p>review.
