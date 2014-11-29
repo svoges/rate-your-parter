@@ -1,4 +1,16 @@
 /*
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
+  background:url('https://farm8.staticflickr.com/7160/6458032877_e05f5a59cb_b.jpg');
 */
+.jumbotron
+{
+background:url('https://farm8.staticflickr.com/7160/6458032877_e05f5a59cb_b.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+min-height:500px;
+margin-bottom:0px;
+background-position: 0% 100%;
+color: white;
+text-shadow: black 0.3em 0.3em 0.3em;
+}
