@@ -1,7 +1,9 @@
 <h3><%= @lecture.name + " " + @lecture.semester + " " + @lecture.year.to_s %></h3>
-<%= link_to "Create a review!", new_review_path %>
+<div class="create-button"> 
+  <%= link_to "Create a review!", new_review_path %>
+</div>
 <% if @lecture.reviews.any? %>
-  <h4>Students:</h4>
+  <div id="student-list"> <h4>Students:</h4> 
     <ul>
       <% @lecture.reviews.each do |review| %>
         <% if review.lecture_id == @lecture[:id]%>
@@ -10,6 +12,7 @@
         <% end %>
       <% end %>
     </ul>
+  </div>
 <% else %>
   <h4> Lecture has no reviews! </h4>
 <% end %>
