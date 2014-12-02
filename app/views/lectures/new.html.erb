@@ -1,6 +1,16 @@
-<%= form_for Lecture.new, url: {action: "create"} do |p| %>
-  Class:    <%= p.text_field :name %>
-  Semester: <%= p.text_field :semester %>
-  Year:     <%= p.text_field :year %>
-  <%= p.button "Create" %>
-<% end %>
+<div class='container'>
+  <h1 class='text-center'>Add a New Lecture!</h1>
+  <br>
+  <div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-6'>
+      <%= simple_form_for(Lecture.new, url: {action: "create"}) do |l| %>
+        <%= l.input :name %>
+        <%= l.input :semester, collection: ["Fall", "Spring"], prompt: "Select Semester" %>
+        <%= l.input :year, collection: (Time.new.year-5)..(Time.new.year+2), prompt: "Select Year" %>
+        <br>
+        <%= l.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

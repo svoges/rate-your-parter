@@ -17,7 +17,7 @@
       <%= simple_form_for(Review.new, url: {action: "create"}) do |r| %>
         <%= r.input :lecture_name, collection: @lecture_array %>
         <%= r.input :person_being_reviewed, collection: @user_array %>
-        <%= r.input :rating, as: :integer %>
+        <%= r.input :rating, collection: 1..5 %>
         <%= r.input :description, as: :text %>
         <%= r.button :submit %>
       <% end %>
