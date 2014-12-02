@@ -5,10 +5,14 @@
 <% if @lecture.reviews.any? %>
   <div id="student-list"> <h4>Students:</h4> 
     <ul>
+      <% user_array = Array.new %>
       <% @lecture.reviews.each do |review| %>
         <% if review.lecture_id == @lecture[:id]%>
           <% @user = User.find(review.person_reviewed_id) %>
-          <h5><%= link_to @user.name, review %></h5>
+          <% if not user_array.include?(@user) %>
+            <h5><%= link_to @user.name, review %></h5>
+            <% user_array.push(@user) %>
+          <% end %>
         <% end %>
       <% end %>
     </ul>
