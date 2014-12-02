@@ -1,16 +1,11 @@
 <div class="container">
+  <!-- Example row of columns -->
   <div class="row">
-    <h3>Users</h3>
-    <div class="column">
-      <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <% @users.each do |user| %>
+    <div class="col-md-4">
+      <h2><%= user.name %></h2>
+      <p><a class="btn btn-default" href= "/users/<%= user.id %>" role="button">View details &raquo;</a></p>
     </div>
+    <% end %>
   </div>
-</div>
+</div> <!-- /container -->

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_reviews = Review.where(person_reviewed_id: @user.id)
     @average_rating = average_rating(@user, false)
     @average_given_rating = average_rating(@user, true)
   end
@@ -27,5 +28,4 @@ class UsersController < ApplicationController
     average_rating = arr.inject{ |sum, el| sum + el }.to_f / arr.size
     return average_rating.to_s[0..2]
   end
-
 end
