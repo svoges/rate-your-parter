@@ -16,7 +16,7 @@ group :development, :test do
 end
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'unicorn'
 gem 'unicorn-rails'
 group :development do
