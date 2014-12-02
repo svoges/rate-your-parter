@@ -1,0 +1,7 @@
+<%= form_for Review.new, url: {action: "update"} do |p| %>
+Class: <%= @review.lecture_name %> <%= p.hidden_field :lecture_name, :value => @review.lecture_id %>
+Classmate: <%= @review.person_being_reviewed %>  <%= p.hidden_field :person_being_reviewed, :value => @review.person_reviewed_id %>
+Rating:      <%= p.number_field :rating , :value => @review.rating%>
+Description: <%= p.text_field :description, :value => @review.description %>
+<%= p.button "Create" %>
+<% end %>

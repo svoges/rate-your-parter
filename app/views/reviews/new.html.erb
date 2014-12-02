@@ -1,1 +1,29 @@
+<!-- <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <% @users.each do |user| %>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> <%= user.name %></a></li>
+    <% end %>
+  </ul>
+</div> -->
 
+<% @user_array = Array.new %>
+<% @users.each do |user| %>
+  <% @user_array.push(user.name) %>
+<% end %>
+
+<% @lecture_array = Array.new %>
+<% @lectures.each do |lecture| %>
+  <% @lecture_array.push(lecture.display_name) %>
+<% end %>
+
+<%= form_for Review.new, url: {action: "create"} do |p| %>
+  Class:       <%= p.select :lecture_name, @lecture_array %>
+  Classmate:   <%= p.select :person_being_reviewed, @user_array %>
+  Rating:      <%= p.number_field :rating %>
+  Description: <%= p.text_field :description %>
+  <%= p.button "Create" %>
+<% end %>

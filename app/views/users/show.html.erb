@@ -1,4 +1,24 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-<p>ID: <%= @user.id if @user.id %></p>
+<div class="container">
+<p><h2><%= @user.name + ' '%></h2></p>
+<p><%= mail_to @user.email if @user.email %></p>
+<h3>Average Rating: <b><%= @average_rating %></b></h3>
+<% if @average_given_rating.length > 0 %>
+<p>Average rating given: <b><%= @average_given_rating %> </b></p>
+<% end %>
+<p></p>
+<br/>
+<table class="table table-hover">
+<tr>
+<th>Description</th>
+<th>Rating</th>
+<th>Reviewer</th>
+</tr>
+<% @user.received_reviews.each do |review| %>
+<tr>
+<td><%= review.description %></td>
+<td><%= review.rating.to_s %></td>
+<td><%= link_to review.reviewer.name, users_path + "/" + review.reviewer.id.to_s %></td>
+</tr>
+<% end %>
+</table>
+</div>

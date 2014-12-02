@@ -3,6 +3,7 @@
 <% if user_signed_in? %>
   <li><%= link_to 'Users', users_path %></li>
   <li><%= link_to 'Lectures', lectures_path %></li>
+  <li><%= link_to 'Create a Review', new_review_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
